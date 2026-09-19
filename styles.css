@@ -1,0 +1,123 @@
+:root {
+  --bg: #080b14;
+  --surface: #101625;
+  --surface-2: #151d30;
+  --text: #f4f7ff;
+  --muted: #9ba7bd;
+  --line: rgba(255,255,255,.10);
+  --primary: #8b7cff;
+  --secondary: #3dd9c5;
+  --shadow: 0 20px 70px rgba(0,0,0,.28);
+}
+[data-theme="light"] {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-2: #eef2f9;
+  --text: #101625;
+  --muted: #5c687c;
+  --line: rgba(16,22,37,.12);
+  --shadow: 0 20px 70px rgba(25,42,75,.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text); font-family: Inter, sans-serif;
+  line-height: 1.6; overflow-x: hidden; transition: background .3s, color .3s;
+}
+a { color: inherit; text-decoration: none; }
+.header {
+  position: sticky; top: 0; z-index: 20; display: flex; align-items: center;
+  justify-content: space-between; padding: 18px clamp(20px, 6vw, 90px);
+  background: color-mix(in srgb, var(--bg) 84%, transparent); backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; align-items: center; gap: 10px; font: 700 1.15rem "Space Grotesk"; }
+.brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #08101a; font-size: .78rem; }
+.accent, .gradient-text { color: var(--secondary); }
+.gradient-text { background: linear-gradient(90deg, var(--secondary), var(--primary)); -webkit-background-clip: text; color: transparent; }
+.nav { display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: .92rem; }
+.nav a:hover { color: var(--text); }
+.theme-toggle, .menu-toggle { border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: 10px; cursor: pointer; padding: 8px 11px; }
+.menu-toggle { display: none; }
+.section { width: min(1180px, 90%); margin: 0 auto; padding: 105px 0; }
+.hero { min-height: 740px; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 65px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: .74rem; font-weight: 800; color: var(--secondary); margin-bottom: 18px; }
+.status-dot, .pulse { display: inline-block; width: 8px; height: 8px; background: var(--secondary); border-radius: 50%; margin-right: 8px; box-shadow: 0 0 18px var(--secondary); }
+h1, h2, h3 { font-family: "Space Grotesk", sans-serif; line-height: 1.12; }
+h1 { font-size: clamp(2.7rem, 6vw, 5.6rem); letter-spacing: -.065em; max-width: 760px; }
+h2 { font-size: clamp(2rem, 4vw, 3.6rem); letter-spacing: -.045em; }
+.hero-description { color: var(--muted); max-width: 630px; font-size: 1.08rem; margin: 28px 0; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.button { display: inline-flex; align-items: center; justify-content: center; border-radius: 12px; padding: 13px 18px; font-weight: 700; border: 1px solid var(--line); cursor: pointer; font: inherit; }
+.primary { background: linear-gradient(135deg, var(--primary), #5c9cff); color: white; border: none; }
+.secondary { background: var(--surface); color: var(--text); }
+.quick-stats { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 55px; }
+.quick-stats div { display: grid; gap: 3px; }
+.quick-stats strong { font: 700 1.25rem "Space Grotesk"; }
+.quick-stats span { color: var(--muted); font-size: .76rem; }
+.hero-card { padding: 25px; border: 1px solid var(--line); border-radius: 22px; background: linear-gradient(145deg, var(--surface), var(--surface-2)); box-shadow: var(--shadow); transform: rotate(2deg); }
+.window-top { display: flex; gap: 7px; margin-bottom: 34px; }
+.window-top span { width: 10px; height: 10px; border-radius: 50%; background: var(--muted); opacity: .5; }
+.terminal-line, .code-line { font: .9rem/2 "Space Grotesk", monospace; }
+.terminal-symbol, .code-key { color: var(--primary); }
+.code-string { color: var(--secondary); }
+.indent { padding-left: 20px; }
+.terminal-footer { border-top: 1px solid var(--line); margin-top: 28px; padding-top: 18px; color: var(--muted); font-size: .75rem; }
+.split-section { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; border-top: 1px solid var(--line); }
+.section-heading h2 { max-width: 650px; }
+.section-content { color: var(--muted); font-size: 1.02rem; }
+.section-content p + p { margin-top: 20px; }
+.highlight-box { display: flex; gap: 14px; margin-top: 30px; padding: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; }
+.highlight-icon { color: var(--secondary); font-size: 1.5rem; }
+.highlight-box strong { color: var(--text); }
+.highlight-box p { margin-top: 6px; font-size: .92rem; }
+.centered { text-align: center; }
+.centered h2 { margin: 0 auto; }
+.skills-grid, .projects-grid, .journey-grid { display: grid; gap: 18px; margin-top: 48px; }
+.skills-grid { grid-template-columns: repeat(4, 1fr); }
+.skill-card, .project-card, .journey-item { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 26px; transition: transform .25s, border-color .25s; }
+.skill-card:hover, .project-card:hover, .journey-item:hover { transform: translateY(-7px); border-color: color-mix(in srgb, var(--secondary) 60%, transparent); }
+.skill-card > span, .project-icon { font-size: 1.8rem; color: var(--secondary); }
+.skill-card h3, .project-card h3 { margin: 20px 0 12px; font-size: 1.15rem; }
+.skill-card p, .project-card p, .journey-item p { color: var(--muted); font-size: .9rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
+.tags span { padding: 5px 9px; border-radius: 7px; background: var(--surface-2); color: var(--muted); font-size: .7rem; }
+.projects-grid { grid-template-columns: repeat(3, 1fr); }
+.project-card { position: relative; min-height: 290px; display: flex; flex-direction: column; align-items: flex-start; }
+.project-number { position: absolute; top: 22px; right: 24px; color: var(--muted); font: 700 .75rem "Space Grotesk"; }
+.project-card a { margin-top: auto; padding-top: 25px; color: var(--secondary); font-weight: 700; font-size: .88rem; }
+.journey { border-top: 1px solid var(--line); }
+.journey-grid { grid-template-columns: repeat(3, 1fr); }
+.journey-item span { color: var(--primary); font: 700 1.8rem "Space Grotesk"; }
+.journey-item h3 { margin: 20px 0 10px; }
+.contact-section { padding-top: 50px; }
+.contact-card { text-align: center; padding: 70px 30px; border: 1px solid var(--line); border-radius: 28px; background: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--primary) 22%, transparent), transparent 55%), var(--surface); }
+.contact-card h2 { max-width: 700px; margin: auto; }
+.contact-card p:not(.eyebrow) { color: var(--muted); max-width: 600px; margin: 20px auto 30px; }
+.contact-card .hero-actions { justify-content: center; }
+#copyFeedback { display: block; color: var(--secondary); margin-top: 15px; }
+.footer { width: min(1180px, 90%); margin: auto; padding: 25px 0 40px; display: flex; justify-content: space-between; gap: 15px; color: var(--muted); font-size: .78rem; border-top: 1px solid var(--line); }
+.ambient { position: fixed; width: 350px; height: 350px; border-radius: 50%; filter: blur(100px); opacity: .12; pointer-events: none; z-index: -1; }
+.ambient-one { background: var(--primary); top: 10%; left: -180px; }
+.ambient-two { background: var(--secondary); right: -180px; bottom: 10%; }
+.reveal { opacity: 0; transform: translateY(25px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 950px) {
+  .hero { grid-template-columns: 1fr; padding-top: 75px; }
+  .hero-card { max-width: 650px; width: 100%; margin: auto; transform: none; }
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .split-section { grid-template-columns: 1fr; gap: 35px; }
+}
+@media (max-width: 650px) {
+  .header { padding: 14px 5%; }
+  .menu-toggle { display: block; }
+  .nav { display: none; position: absolute; top: 70px; left: 5%; right: 5%; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; flex-direction: column; align-items: stretch; }
+  .nav.open { display: flex; }
+  .nav a, .theme-toggle { text-align: center; }
+  .section { padding: 70px 0; }
+  .skills-grid, .projects-grid, .journey-grid { grid-template-columns: 1fr; }
+  h1 { font-size: clamp(2.6rem, 13vw, 4rem); }
+  .quick-stats { gap: 20px; }
+  .footer { flex-direction: column; }
+}
